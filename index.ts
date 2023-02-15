@@ -155,6 +155,10 @@ try {
 	const promises = [];
 
 	zip.forEach((entryPath, entry) => {
+		// Skip directories.
+		if (entry.dir)
+			return;
+			
 		const filePath = path.join(targetDir, entryPath);
 		const fileDir = path.dirname(filePath);
 
