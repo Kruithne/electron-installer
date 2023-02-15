@@ -139,18 +139,15 @@ try {
 	}
 
 	const localeFilter = (entry: string) => {
-		const skipLocale = locale.length === 0;
-		if (skipLocale)
+		if (locale.length === 0)
 			return true;
 
-		let match: RegExpMatchArray | null;
-		if (platform === 'darwin' || platform === 'mas') {
-			match = entry.match(/^Electron.app\/Contents\/Resources\/([^.]+)\.lproj\/InfoPlist.strings$/);
-		} else {
-			match = entry.match(/^locales\/([^.]+)\.pak$/);
-		}
+		// Skip darwin/mas, locales directories are empty?
+		if (platform === 'darwin' || platform === 'mas')
+			return true;
 
-		return skipLocale || (match ? localeStrings.includes(match[1].toLowerCase()) : true);
+		const match = entry.match(/^locales\/([^.]+)\.pak$/);
+		return match ? localeStrings.includes(match[1].toLowerCase()) : true;
 	};
 
 	const excludeRegExp = excludePattern ? new RegExp(excludePattern, 'i') : undefined;

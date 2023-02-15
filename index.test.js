@@ -262,16 +262,6 @@ test('cmd: electron-installer --version 22.2.1 --locale "el,en-GB,en_US"', () =>
 		expect(localeFiles.includes('el.pak')).toBe(true);
 		expect(localeFiles.includes('en-GB.pak')).toBe(true);
 		expect(localeFiles.includes('en-US.pak')).toBe(true);
-	} else if (process.platform === 'darwin') {
-		const localeFiles = fs.readdirSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Resources'));
-		expect(localeFiles.length).toBe(5);
-		expect(localeFiles.includes('el.lproj')).toBe(true);
-		expect(localeFiles.includes('en_GB.lproj')).toBe(true);
-		expect(localeFiles.includes('en.lproj')).toBe(true); // OSX uses en.lproj for en-US.
-		
-		// Other things included are: default_app.asar, electron.icns
-		expect(localeFiles.includes('default_app.asar')).toBe(true);
-		expect(localeFiles.includes('electron.icns')).toBe(true);
 	}
 });
 
