@@ -125,7 +125,7 @@ electron-installer --exclude "^ffmpeg.dll$" # Excludes ffmpeg.dll from the build
 ```
 
 Notes on file exclusion:
-- The pattern is matched against the file path as it appears inside the ZIP/TAR archive, not the final file path on disk.
+- The pattern is matched against the file path as it appears inside the ZIP archive, not the final file path on disk.
 - To exclude locale files more efficiently, see the [Locales](#locale) section.
 
 ### Locale
