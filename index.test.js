@@ -88,9 +88,9 @@ test('cmd: electron-installer --version 22.2.1', () => {
 		expect(fs.existsSync(path.join(TEST_DIR, 'vk_swiftshader_icd.json'))).toBe(true);
 		expect(fs.existsSync(path.join(TEST_DIR, 'vulkan-1.dll'))).toBe(true);
 	} else if (process.platform === 'darwin') {
-		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Resources', 'LICENSE'))).toBe(true);
-		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Resources', 'LICENSES.chromium.html'))).toBe(true);
-		expect(fs.readFileSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Resources', 'version'), 'utf8')).toBe('22.2.1');
+		expect(fs.existsSync(path.join(TEST_DIR, 'LICENSE'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'LICENSES.chromium.html'))).toBe(true);
+		expect(fs.readFileSync(path.join(TEST_DIR, 'version'), 'utf8')).toBe('22.2.1');
 		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Info.plist'))).toBe(true);
 		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'PkgInfo'))).toBe(true);
 		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'MacOS', 'Electron'))).toBe(true);
