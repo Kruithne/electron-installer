@@ -10,18 +10,18 @@ const EXEC_OPTS = { cwd: TEST_DIR };
 
 beforeAll(() => {
 	// Wipe cache directory in case it exists from a previous test run or development.
-	fs.rm(CACHE_DIR, { recursive: true, force: true });
+	fs.rmSync(CACHE_DIR, { recursive: true, force: true });
 });
 
 beforeEach(() => {
 	// Wipe test directory in case it exists from a previous test run.
-	fs.rm(TEST_DIR, { recursive: true, force: true });
+	fs.rmSync(TEST_DIR, { recursive: true, force: true });
 	fs.mkdirSync(TEST_DIR);
 });
 
 afterEach(() => {
 	// Clean up the test directory.
-	fs.rm(TEST_DIR, { recursive: true, force: true });
+	fs.rmSync(TEST_DIR, { recursive: true, force: true });
 });
 
 test('cmd: electron-installer', () => {
