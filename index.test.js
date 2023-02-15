@@ -56,12 +56,44 @@ test('cmd: electron-installer --version 22.2.1', () => {
 
 	if (process.platform === 'linux') {
 		expect(fs.existsSync(path.join(TEST_DIR, 'electron'))).toBe(true);
-       
-		
+		expect(fs.existsSync(path.join(TEST_DIR, 'chrome_100_percent.pak'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'chrome_200_percent.pak'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'resources.pak'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'snapshot_blob.bin'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'v8_context_snapshot.bin'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'LICENSE'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'LICENSES.chromium.html'))).toBe(true);
+		expect(fs.readFileSync(path.join(TEST_DIR, 'version'), 'utf8')).toBe('22.2.1');
+		expect(fs.existsSync(path.join(TEST_DIR, 'icudtl.dat'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'libffmpeg.so'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'libEGL.so'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'libGLESv2.so'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'libvk_swiftshader.so'))).toBe(true);
 	} else if (process.platform === 'win32') {
-		
+		expect(fs.existsSync(path.join(TEST_DIR, 'electron.exe'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'LICENSE'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'LICENSES.chromium.html'))).toBe(true);
+		expect(fs.readFileSync(path.join(TEST_DIR, 'version'), 'utf8')).toBe('22.2.1');
+		expect(fs.existsSync(path.join(TEST_DIR, 'chrome_100_percent.pak'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'chrome_200_percent.pak'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'd3dcompiler_47.dll'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'ffmpeg.dll'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'icudtl.dat'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'libEGL.dll'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'libGLESv2.dll'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'resources.pak'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'snapshot_blob.bin'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'v8_context_snapshot.bin'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'vk_swiftshader.dll'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'vk_swiftshader_icd.json'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'vulkan-1.dll'))).toBe(true);
 	} else if (process.platform === 'darwin') {
-		
+		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Resources', 'LICENSE'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Resources', 'LICENSES.chromium.html'))).toBe(true);
+		expect(fs.readFileSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Resources', 'version'), 'utf8')).toBe('22.2.1');
+		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'Info.plist'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'PkgInfo'))).toBe(true);
+		expect(fs.existsSync(path.join(TEST_DIR, 'Electron.app', 'Contents', 'MacOS', 'Electron'))).toBe(true);
 	}
 
 	// Cache should contain the exact version specified.
