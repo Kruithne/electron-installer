@@ -47,6 +47,10 @@ try {
 
 		targetVersion = latestJSON.tag_name.replace(/^v/, '');
 		didAutoDetectVersion = true;
+	} else {
+		// Remove 'v' prefix if provided.
+		if (targetVersion.startsWith('v'))
+			targetVersion = targetVersion.slice(1);
 	}
 
 	let didAutoDetectPlatform: boolean = false;
@@ -158,7 +162,7 @@ try {
 		// Skip directories.
 		if (entry.dir)
 			return;
-			
+
 		const filePath = path.join(targetDir, entryPath);
 		const fileDir = path.dirname(filePath);
 
