@@ -45,13 +45,12 @@ try {
 		// Target version not provided, attempt to auto-detect latest version.
 		const latestJSON = await fetch(GITHUB_LATEST_RELEASE_URL).then(res => res.json());
 
-		targetVersion = latestJSON.tag_name.replace(/^v/, '');
+		targetVersion = latestJSON.tag_name;
 		didAutoDetectVersion = true;
-	} else {
-		// Remove 'v' prefix if provided.
-		if (targetVersion.startsWith('v'))
-			targetVersion = targetVersion.slice(1);
 	}
+
+	// Remove 'v' prefix, if provided.
+	targetVersion.replace(/^v/, '');
 
 	let didAutoDetectPlatform: boolean = false;
 	let didAutoDetectArch: boolean = false;
