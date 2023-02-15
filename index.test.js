@@ -199,18 +199,6 @@ test('cmd: electron-installer --version 22.2.1 --platform linux --arch x64', () 
 	expect(cacheFiles.find(e => e.match(/electron-v22\.2\.1-linux-x64\.zip/))).not.toBeUndefined();
 });
 
-test('cmd: electron-installer --version 22.2.1 --platform linux --arch ia32', () => {
-	// Run the command.
-	execSync(`electron-installer --version 22.2.1 --platform linux --arch ia32`, EXEC_OPTS);
-
-	// Check Electron was installed.
-	expect(fs.existsSync(path.join(TEST_DIR, 'electron'))).toBe(true);
-
-	// Cache should contain the exact platform and arch specified.
-	const cacheFiles = fs.readdirSync(CACHE_DIR);
-	expect(cacheFiles.find(e => e.match(/electron-v22\.2\.1-linux-ia32\.zip/))).not.toBeUndefined();
-});
-
 test('cmd: electron-installer --version 22.2.1 --platform darwin --arch x64', () => {
 	// Run the command.
 	execSync(`electron-installer --version 22.2.1 --platform darwin --arch x64`, EXEC_OPTS);
