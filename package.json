@@ -5,7 +5,7 @@
 	"description": "Cross-platform CLI tool for installing Electron distributions",
 	"main": "index.js",
 	"scripts": {
-		"test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js -- --verbose",
+		"test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --verbose",
 		"electron-installer": "node --no-warnings index.js"
 	},
 	"bin": {
