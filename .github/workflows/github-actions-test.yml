@@ -1,0 +1,43 @@
+name: tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        node-version: [18.x, 19.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository source
+        uses: actions/checkout@v3
+
+      - name: Setup node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install node dependencies
+        run: npm ci
+
+      - name: ESLint check
+        run: npx eslint .
+
+      - name: Install TypeScript
+        run: npm install -g typescript
+
+      - name: Compile TypeScript
+        run: tsc
+
+      - name: Install global bin
+        run: npm install -g
+
+      - name: Run tests
+        run: npm test
