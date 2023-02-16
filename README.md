@@ -7,7 +7,6 @@
 This utility is intended for use in automated build pipelines or for development and testing purposes.
 
 - Supports all platforms, architectures and versions.
-- Supports both production and SDK builds.
 - Caches builds to avoid unnecessary downloads.
 - Minimal external dependencies: [JSZip](https://www.npmjs.com/package/jszip).
 
