@@ -115,6 +115,8 @@ try {
 	} else {
 		log.info('Downloading archive from {%s}', downloadURL);
 
+		log.warn(downloadURL);
+
 		const res = await fetch(downloadURL);
 		if (!res.ok)
 			throw new Error('Download server returned HTTP {' + res.status + '}: ' + res.statusText);

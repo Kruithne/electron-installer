@@ -8,9 +8,6 @@
 		"test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js",
 		"electron-installer": "node --no-warnings index.js"
 	},
-	"jest": {
-		"verbose": true
-	},
 	"bin": {
 		"electron-installer": "./index.js"
 	},
