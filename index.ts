@@ -51,7 +51,7 @@ try {
 	}
 
 	// Remove 'v' prefix, if provided.
-	targetVersion.replace(/^v/, '');
+	targetVersion = targetVersion.replace(/^v/, '');
 
 	let didAutoDetectPlatform: boolean = false;
 	let didAutoDetectArch: boolean = false;
