@@ -1,6 +1,6 @@
 {
 	"name": "electron-installer",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"description": "Cross-platform CLI tool for installing Electron distributions",
 	"main": "index.js",
